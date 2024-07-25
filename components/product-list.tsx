@@ -9,6 +9,8 @@ interface ProductListProps {
 }
 
 const ProductList: React.FC<ProductListProps> = ({ title, items }) => {
+    // console.log("items", items);
+
     return (
         <div className="space-y-4">
             <h3 className="text-3xl font-bold">{title}</h3>

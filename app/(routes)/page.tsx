@@ -5,7 +5,7 @@ import Container from "@/components/ui/container";
 import getBillboard from "@/actions/get-billboard";
 import getProducts from "@/actions/get-products";
 
-export const revalidate = 0;
+// export const revalidate = 0;
 
 const HomePage = async () => {
     const products = await getProducts({ isFeatured: true });

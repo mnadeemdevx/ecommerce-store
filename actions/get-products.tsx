@@ -11,8 +11,6 @@ interface Query {
     isFeatured?: boolean;
 }
 const getProducts = async (query: Query): Promise<Product[]> => {
-    console.log("check query", query);
-
     const url = qs.stringifyUrl({
         url: URL,
         query: {

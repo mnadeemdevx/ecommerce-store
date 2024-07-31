@@ -22,16 +22,18 @@ const Summary = () => {
     }, 0);
 
     const onCheckout = async () => {
-        await axios
-            .post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`, {
-                productIds: items.map((item) => item.id),
-            })
-            .then((res) => {
-                window.location = res.data.url;
-            })
-            .catch((err) => {
-                toast.error("Something went wrong");
-            });
+        try {
+            const response = await axios.post(
+                `${process.env.NEXT_PUBLIC_API_URL}/checkout`,
+                {
+                    productIds: items.map((item) => item.id),
+                },
+            );
+            window.location = response.data.url;
+        } catch (error) {
+            console.error("Checkout error:", error);
+            toast.error("Checkout failed. Please try again.");
+        }
     };
 
     useEffect(() => {
@@ -39,7 +41,7 @@ const Summary = () => {
             toast.success("Payment completed.");
             removeAll();
         }
-        if (searchParams.get("canceled")) {
+        if (searchParams.get("cancelled")) {
             toast.error("Something went wrong.");
         }
     }, [searchParams, removeAll]);

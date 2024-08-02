@@ -9,9 +9,7 @@ import getProducts from "@/actions/get-products";
 
 const HomePage = async () => {
     const products = await getProducts({ isFeatured: true });
-    const billboard = await getBillboard(
-        "0814d205-f75a-46c1-8f0c-c263650b1ec9",
-    );
+    const billboard = await getBillboard(process.env.HOME_BILLBOARD!);
     return (
         <Container>
             <div className="space-y-10 pb-10">

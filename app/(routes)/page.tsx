@@ -10,7 +10,7 @@ import getProducts from "@/actions/get-products";
 const HomePage = async () => {
     const products = await getProducts({ isFeatured: true });
     const billboard = await getBillboard(
-        "be2f679a-16b8-4cdc-8d2e-ca80b70d79ad",
+        "0814d205-f75a-46c1-8f0c-c263650b1ec9",
     );
     return (
         <Container>
